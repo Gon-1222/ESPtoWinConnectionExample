@@ -1,8 +1,8 @@
 #include <WiFi.h> // ESP32の場合 (ESP8266の場合は ESP8266WiFi.h)
  
-const char* ssid = "Fukushima-Room8-14-2.4G";      // WiFiのSSID
-const char* password = "fksm5818";  // WiFiのパスワード
-const char* host = "192.168.11.10";  // TCPサーバーのIPアドレス
+const char* ssid = "yourssid";      // WiFiのSSID
+const char* password = "wifipassword";  // WiFiのパスワード
+const char* host = "192.168.1.49";  // TCPサーバーのIPアドレス
 const uint16_t port = 1234;           // TCPサーバーのポート
 
 WiFiClient client;
@@ -10,7 +10,6 @@ WiFiClient client;
 void setup() {
   Serial.begin(115200);
   delay(100);
-
   // WiFiに接続
   Serial.println();
   Serial.println();
@@ -50,7 +49,7 @@ void loop() {
     Serial.print("Sent value: ");
     Serial.println(analogValue);       // デバッグ用に送信した値をシリアルに出力
 
-    delay(100);  // 0.1秒ごとに送信
+    delay(1000);  // 0.1秒ごとに送信
   } else {
     Serial.println("Disconnected from server");
     delay(1000); // 再接続のための待機時間
